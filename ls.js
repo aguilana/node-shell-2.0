@@ -6,13 +6,13 @@ const fs = require('fs')
 
 
 
-module.exports = (prompt) => {
+module.exports = (done) => {
     // reads current directory and outputs in UTF8 string -> handler fn takes error and data parameters
     fs.readdir('./', 'utf8', (err, data) => {
         if (err){
             throw (err);
         } else {
-            prompt(data.join('\n'))
+            done(data.join('\n'))
         }
     })
 }
